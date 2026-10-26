@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleItem from '../../components/ArticleItem.astro';
 import { getArticles } from '../../lib/writing';
 
 export async function getStaticPaths() {
@@ -36,11 +37,7 @@ const shareImage = image ? (await getImage({ src: image, format: 'png', width: 1
       <h2>Related writing</h2>
       <ul class="article-list">
         {related.map((article) => (
-          <li>
-            <a href={`/writing/${article.id}/`}>{article.data.title}</a>
-            {article.data.draft && <span class="draft">draft</span>}
-            <p>{article.data.summary}</p>
-          </li>
+          <ArticleItem article={article} />
         ))}
       </ul>
     </section>

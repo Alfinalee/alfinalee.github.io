@@ -1,0 +1,19 @@
+---
+import type { Article } from '../lib/writing';
+
+interface Props {
+  article: Article;
+  /** Show the topic before the title, for lists that aren't already grouped by topic. */
+  showTopic?: boolean;
+}
+
+const { article, showTopic = false } = Astro.props;
+const { title, summary, topic, draft } = article.data;
+---
+
+<li>
+  {showTopic && <span class="topic">{topic}</span>}
+  <a href={`/writing/${article.id}/`}>{title}</a>
+  {draft && <span class="draft">draft</span>}
+  <p>{summary}</p>
+</li>

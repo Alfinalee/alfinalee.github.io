@@ -190,6 +190,16 @@ h2 {
   color: var(--muted);
 }
 
+.topic {
+  display: table;
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+}
+
 .draft {
   margin-left: 0.5rem;
   font-size: 0.75rem;

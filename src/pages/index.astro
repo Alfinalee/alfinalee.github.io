@@ -3,9 +3,14 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import SystemMap from '../components/SystemMap.astro';
+import ArticleItem from '../components/ArticleItem.astro';
+import { getArticles } from '../lib/writing';
 import { SITE_TAGLINE } from '../consts';
 
 const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const articles = (await getArticles()).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 ---
@@ -35,4 +40,14 @@ const projects = (await getCollection('projects')).sort(
       {projects.map((project) => <ProjectCard project={project} />)}
     </div>
   </section>
+
+  {articles.length > 0 && (
+    <section>
+      <h2>Writing</h2>
+      <ul class="article-list">
+        {articles.map((article) => <ArticleItem article={article} showTopic />)}
+      </ul>
+      <p><a href="/writing/">All writing, by topic →</a></p>
+    </section>
+  )}
 </BaseLayout>
