@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import SystemMap from '../components/SystemMap.astro';
 import { SITE_TAGLINE } from '../consts';
 
 const projects = (await getCollection('projects')).sort(
@@ -21,6 +22,11 @@ const projects = (await getCollection('projects')).sort(
       Placeholder: two or three sentences on who I am, what I've worked on, and what kind of
       work I'm looking for.
     </p>
+  </section>
+
+  <section>
+    <h2>How it fits together</h2>
+    <SystemMap />
   </section>
 
   <section>

@@ -1,0 +1,143 @@
+---
+// How Solo Business, Custos and Brain connect. Brain is the hub: my own words, read by the agents.
+---
+
+<figure class="system-map">
+  <svg viewBox="0 0 400 410" role="img" aria-labelledby="system-map-title system-map-desc">
+    <title id="system-map-title">How Solo Business, Custos and Brain connect</title>
+    <desc id="system-map-desc">
+      I write and curate Brain, my Obsidian vault, with Claude Code. Solo Business × AI Agent, my business system, reads
+      judgment from Brain and writes findings back only after my approval. Custos, my personal
+      companion, searches Brain on demand, read-only. Both agents work with me directly.
+    </desc>
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10 z" class="arrowhead" />
+      </marker>
+    </defs>
+
+    <!-- edges -->
+    <path class="edge" d="M140 35 H20 V328" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+    <path class="edge" d="M260 35 H380 V328" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+    <path class="edge strong" d="M200 62 V188" marker-end="url(#arrow)" />
+    <path class="edge" d="M55 328 V220 H138" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+    <path class="edge" d="M345 328 V220 H262" marker-start="url(#arrow)" />
+
+    <!-- edge labels -->
+    <text class="label" x="26" y="26">drafts ⇄ my OK</text>
+    <text class="label" x="374" y="26" text-anchor="end">daily chat</text>
+    <text class="label" x="208" y="118">I write and curate</text>
+    <text class="label" x="208" y="133">(Claude Code helps)</text>
+    <text class="label" x="63" y="268">reads judgment;</text>
+    <text class="label" x="63" y="283">findings back</text>
+    <text class="label" x="63" y="298">only after my OK</text>
+    <text class="label" x="337" y="268" text-anchor="end">searches on demand,</text>
+    <text class="label" x="337" y="283" text-anchor="end">read-only</text>
+
+    <!-- nodes -->
+    <g class="node me">
+      <rect x="140" y="10" width="120" height="52" rx="8" />
+      <text class="title" x="200" y="32" text-anchor="middle">Me</text>
+      <text class="sub" x="200" y="50" text-anchor="middle">decides, approves</text>
+    </g>
+
+    <a href="/projects/brain/">
+      <g class="node hub">
+        <rect x="140" y="188" width="120" height="64" rx="8" />
+        <text class="title" x="200" y="213" text-anchor="middle">Brain</text>
+        <text class="sub" x="200" y="230" text-anchor="middle">Obsidian vault</text>
+        <text class="sub" x="200" y="244" text-anchor="middle">my own words</text>
+      </g>
+    </a>
+
+    <a href="https://li-yiqian.github.io/solo-business-agent-system/">
+      <g class="node">
+        <rect x="0" y="330" width="130" height="70" rx="8" />
+        <text class="title" x="65" y="353" text-anchor="middle">Solo Business</text>
+        <text class="sub" x="65" y="371" text-anchor="middle">business agent</text>
+        <text class="sub" x="65" y="386" text-anchor="middle">on Hermes Agent</text>
+      </g>
+    </a>
+
+    <a href="/projects/custos/">
+      <g class="node">
+        <rect x="270" y="330" width="130" height="70" rx="8" />
+        <text class="title" x="335" y="353" text-anchor="middle">Custos</text>
+        <text class="sub" x="335" y="371" text-anchor="middle">personal companion</text>
+        <text class="sub" x="335" y="386" text-anchor="middle">diary · now · taste</text>
+      </g>
+    </a>
+  </svg>
+  <figcaption>
+    Brain holds my own words and judgment. The agents read from it, and nothing goes back in
+    without me.
+  </figcaption>
+</figure>
+
+<style>
+  .system-map {
+    margin: 0;
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    margin: 0 auto;
+    font-family: inherit;
+  }
+
+  .edge {
+    fill: none;
+    stroke: var(--muted);
+    stroke-width: 1.25;
+  }
+
+  .edge.strong {
+    stroke: var(--accent);
+    stroke-width: 2;
+  }
+
+  .arrowhead {
+    fill: var(--muted);
+  }
+
+  .label {
+    font-size: 12px;
+    fill: var(--muted);
+  }
+
+  .node rect {
+    fill: var(--surface);
+    stroke: var(--border);
+    stroke-width: 1.25;
+  }
+
+  .node.hub rect {
+    stroke: var(--accent);
+    stroke-width: 2;
+  }
+
+  .node .title {
+    font-size: 15px;
+    font-weight: 600;
+    fill: var(--fg);
+  }
+
+  .node .sub {
+    font-size: 11.5px;
+    fill: var(--muted);
+  }
+
+  a:hover .node rect,
+  a:focus-visible .node rect {
+    stroke: var(--accent);
+  }
+
+  figcaption {
+    margin-top: 0.75rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+</style>
