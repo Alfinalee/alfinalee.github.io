@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { SITE_TITLE, SITE_DESCRIPTION, LINKS } from '../consts';
+import { getArticles } from '../lib/writing';
 
 interface Props {
   title?: string;
@@ -13,6 +14,8 @@ interface Props {
 const { title, description = SITE_DESCRIPTION, image, type = 'website' } = Astro.props;
 const fullTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+// Only link to Writing once there is something to read.
+const hasWriting = (await getArticles()).length > 0;
 const imageUrl = image ? new URL(image, Astro.site).href : undefined;
 ---
 
@@ -44,6 +47,11 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
   <body>
     <header class="site-header">
       <a href="/" class="site-name">{SITE_TITLE}</a>
+      {hasWriting && (
+        <nav>
+          <a href="/writing/">Writing</a>
+        </nav>
+      )}
     </header>
     <main>
       <slot />

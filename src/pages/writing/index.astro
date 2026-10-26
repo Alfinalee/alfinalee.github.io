@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getArticles, groupByTopic } from '../../lib/writing';
+
+const groups = groupByTopic(await getArticles());
+---
+
+<BaseLayout title="Writing" description="Long-form notes, grouped by topic.">
+  <h1>Writing</h1>
+  <p class="lead">Long-form notes, grouped by topic.</p>
+
+  {groups.length === 0 && <p>Nothing here yet.</p>}
+
+  {groups.map(([topic, articles]) => (
+    <section>
+      <h2>{topic}</h2>
+      <ul class="article-list">
+        {articles.map((article) => (
+          <li>
+            <a href={`/writing/${article.id}/`}>{article.data.title}</a>
+            {article.data.draft && <span class="draft">draft</span>}
+            <p>{article.data.summary}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</BaseLayout>

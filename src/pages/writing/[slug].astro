@@ -1,0 +1,39 @@
+---
+import { getEntries, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getArticles, formatMonth } from '../../lib/writing';
+
+export async function getStaticPaths() {
+  const articles = await getArticles();
+  return articles.map((article) => ({ params: { slug: article.id }, props: { article } }));
+}
+
+const { article } = Astro.props;
+const { title, summary, topic, date, draft } = article.data;
+const { Content } = await render(article);
+const projects = await getEntries(article.data.projects);
+---
+
+<BaseLayout title={title} description={summary} type="article">
+  <article class="prose">
+    <p class="muted"><a href="/writing/">Writing</a> · {topic}{draft && <span class="draft">draft</span>}</p>
+    <h1>{title}</h1>
+    <p class="lead">{summary}</p>
+    <Content />
+    <p class="muted">Written {formatMonth(date)}</p>
+  </article>
+
+  {projects.length > 0 && (
+    <section>
+      <h2>Used in</h2>
+      <ul class="article-list">
+        {projects.map((project) => (
+          <li>
+            <a href={project.data.externalUrl ?? `/projects/${project.id}/`}>{project.data.title}</a>
+            <p>{project.data.summary}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</BaseLayout>

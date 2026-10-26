@@ -32,7 +32,20 @@ Without `externalUrl`, the page is built at `/projects/<slug>/`. Cards on the ho
 
 ## Add an article
 
-Create `src/content/writing/<slug>.md` with `title`, `summary`, `topic`, `date` in the frontmatter. There is no writing page yet, so articles aren't rendered until that route is added.
+Create `src/content/writing/<slug>.md`:
+
+```md
+---
+title: Notes on RAG
+summary: One or two sentences on what it covers.
+topic: RAG                 # articles are grouped by topic on /writing/
+date: 2026-10-26
+projects: [brain, custos]  # project file names; each project page links back
+draft: true                # visible in `npm run dev`, hidden on the live site
+---
+```
+
+Set `draft: false` (or delete the line) to publish. The "Writing" link in the header appears once at least one article is published.
 
 ## Links
 

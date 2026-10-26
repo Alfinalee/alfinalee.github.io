@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import { getImage } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getArticles } from '../../lib/writing';
 
 export async function getStaticPaths() {
   // Projects with externalUrl live elsewhere; only build pages for the rest.
@@ -12,6 +13,9 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const { title, summary, tags, image } = project.data;
 const { Content } = await render(project);
+const related = (await getArticles()).filter((article) =>
+  article.data.projects.some((ref) => ref.id === project.id),
+);
 const shareImage = image ? (await getImage({ src: image, format: 'png', width: 1200 })).src : undefined;
 ---
 
@@ -26,4 +30,19 @@ const shareImage = image ? (await getImage({ src: image, format: 'png', width: 1
     )}
     <Content />
   </article>
+
+  {related.length > 0 && (
+    <section>
+      <h2>Related writing</h2>
+      <ul class="article-list">
+        {related.map((article) => (
+          <li>
+            <a href={`/writing/${article.id}/`}>{article.data.title}</a>
+            {article.data.draft && <span class="draft">draft</span>}
+            <p>{article.data.summary}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 </BaseLayout>

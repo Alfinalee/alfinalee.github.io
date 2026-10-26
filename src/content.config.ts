@@ -1,4 +1,4 @@
-import { defineCollection } from 'astro:content';
+import { defineCollection, reference } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
@@ -23,6 +23,10 @@ const writing = defineCollection({
     summary: z.string(),
     topic: z.string(),
     date: z.coerce.date(),
+    // Projects that use what the article covers; each project page links back.
+    projects: z.array(reference('projects')).default([]),
+    // Drafts show up in `npm run dev` but are left out of the deployed site.
+    draft: z.boolean().default(false),
   }),
 });
 
