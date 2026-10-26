@@ -1,4 +1,4 @@
-export const SITE_TITLE = 'Li Yiqian';
+export const SITE_TITLE = 'Alfina Lee';
 export const SITE_TAGLINE = 'Consultant who builds';
 export const SITE_DESCRIPTION = 'Consultant who builds. Projects, long-form notes, and who I am.';
 
