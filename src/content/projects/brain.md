@@ -30,7 +30,7 @@ Keeping the material myself creates a second problem. Once an agent can read and
 
 **Owned and portable.** Everything is plain Markdown in a folder on my own disk. Any model can read it, and no app or account is required to open it. The agent instructions are plain text files too, so a different AI can follow the same rules. The vault is the source of truth, and an AI's memory is at most a cache of it.
 
-**Rules live next to the notes.** The vault root has a `CLAUDE.md` with a routing table: what kind of request goes to which folder. Every folder has its own `CLAUDE.md` with that folder's rules, and an agent has to read it before entering the folder. Rules sit where they apply instead of in one prompt that grows forever.
+**Rules live next to the notes.** The vault root has a `CLAUDE.md` with a routing table: what kind of request goes to which folder. Most folders have their own `CLAUDE.md` with that folder's rules, and an agent has to read it before entering the folder. Rules sit where they apply instead of in one prompt that grows forever.
 
 **Read access is tiered.** Some folders are core memory that an agent may recall on its own. Sensitive ones are off by default and only opened when I ask explicitly. Anything written for the public leaves those folders out of the source material entirely.
 
