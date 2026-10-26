@@ -46,7 +46,24 @@ Keeping the material myself creates a second problem. Once an agent can read and
 
 ## Result
 
-<!-- TODO: a screenshot of the folder tree or the graph view with all note titles blurred -->
+The top level of the vault. `[rules]` marks a folder with its own `CLAUDE.md`.
+
+```
+Brain/
+├── CLAUDE.md      routing table and default rules
+├── inbox/         timestamped raw thoughts, sorted later   [rules]
+├── daily/         work logs with Claude                    [rules]
+├── self/          personal; sensitive parts off by default [rules]
+├── principles/    values and decision rules                [rules]
+├── context/       background and history                   [rules]
+├── ideas/         intellectual explorations
+├── reading/                                                [rules]
+├── clippings/                                              [rules]
+├── work/                                                   [rules]
+├── business/                                               [rules]
+├── tech/          AI, automation, personal systems
+└── assets/        images
+```
 
 A vault that three agents work with (Claude Code, Custos and my Solo Business system) without rewriting it. I write in it when something in my life moves forward or is worth keeping. Raw thoughts land in an inbox with timestamps and are sorted into folders later, together with an agent, under the rules above.
 
