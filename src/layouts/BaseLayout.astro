@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import { SITE_TITLE, SITE_DESCRIPTION, LINKS } from '../consts';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Absolute or root-relative URL of the share image. */
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const { title, description = SITE_DESCRIPTION, image, type = 'website' } = Astro.props;
+const fullTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const imageUrl = image ? new URL(image, Astro.site).href : undefined;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={SITE_TITLE} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {imageUrl && <meta property="og:image" content={imageUrl} />}
+
+    <meta name="twitter:card" content={imageUrl ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="/" class="site-name">{SITE_TITLE}</a>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <ul class="links">
+        {LINKS.map((link) => (
+          <li><a href={link.href} rel={link.href.startsWith('http') ? 'me noopener' : undefined}>{link.label}</a></li>
+        ))}
+      </ul>
+      <p class="muted">© {new Date().getFullYear()} {SITE_TITLE}</p>
+    </footer>
+  </body>
+</html>

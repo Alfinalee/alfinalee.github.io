@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { title, summary, tags, externalUrl } = project.data;
+const href = externalUrl ?? `/projects/${project.id}/`;
+---
+
+<article class="card">
+  <h3><a href={href}>{title}{externalUrl && <span aria-hidden="true"> ↗</span>}</a></h3>
+  <p>{summary}</p>
+  {tags.length > 0 && (
+    <ul class="tags">
+      {tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+  )}
+</article>

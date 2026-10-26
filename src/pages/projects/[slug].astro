@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from 'astro:content';
+import { getImage } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  // Projects with externalUrl live elsewhere; only build pages for the rest.
+  const projects = await getCollection('projects', ({ data }) => !data.externalUrl);
+  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const { title, summary, tags, image } = project.data;
+const { Content } = await render(project);
+const shareImage = image ? (await getImage({ src: image, format: 'png', width: 1200 })).src : undefined;
+---
+
+<BaseLayout title={title} description={summary} image={shareImage} type="article">
+  <article class="prose">
+    <h1>{title}</h1>
+    <p class="lead">{summary}</p>
+    {tags.length > 0 && (
+      <ul class="tags">
+        {tags.map((tag) => <li>{tag}</li>)}
+      </ul>
+    )}
+    <Content />
+  </article>
+</BaseLayout>
