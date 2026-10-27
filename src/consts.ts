@@ -1,6 +1,7 @@
 export const SITE_TITLE = 'Alfina Lee';
 export const SITE_TAGLINE = 'Consultant who builds';
-export const SITE_DESCRIPTION = 'Consultant who builds. Projects, long-form notes, and who I am.';
+export const SITE_DESCRIPTION =
+  'I turn messy business problems into working AI systems, with humans kept in charge of the decisions that matter.';
 
 export const LINKS = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alfina-lee-879858252/' },
