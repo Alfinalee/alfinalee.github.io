@@ -1,4 +1,4 @@
-# li-yiqian.github.io
+# alfinalee.github.io
 
 Personal site, built with [Astro](https://astro.build) and deployed to GitHub Pages by `.github/workflows/deploy.yml` on every push to `main`.
 

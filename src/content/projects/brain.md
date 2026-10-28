@@ -11,7 +11,7 @@ Brain is my second brain, an Obsidian vault in plain Markdown. It isn't a catch-
 - **Thinking partner:** it helps with what's happening right now: decisions, confusion, spotting patterns.
 - **Content output:** it holds the deep context and craft specs behind what I write for Xiaohongshu, WeChat articles and copy.
 
-Claude Code works in it with me, and [Custos](/projects/custos/) and my [Solo Business × AI Agent](https://li-yiqian.github.io/solo-business-agent-system/) system read from it. This page covers how the vault is set up for that. None of its contents are shown here.
+Claude Code works in it with me, and [Custos](/projects/custos/) and my [Solo Business × AI Agent](https://alfinalee.github.io/solo-business-agent-system/) system read from it. This page covers how the vault is set up for that. None of its contents are shown here.
 
 ## Problem
 
