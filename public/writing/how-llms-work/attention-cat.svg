@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 510" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <style>
+    @media (prefers-color-scheme: dark) {
+      rect[fill="#ffffff"] { fill: #18181b; }
+      [fill="#222"] { fill: #ececec; }
+      [fill="#333"], [fill="#444"] { fill: #c9c9c9; }
+      [fill="#555"], [fill="#666"], [fill="#777"] { fill: #a3a3a3; }
+      [stroke="#555"] { stroke: #a3a3a3; }
+      [stroke="#bbb"], [stroke="#999"] { stroke: #52525b; }
+      [stroke="#fff"] { stroke: #18181b; }
+      rect[fill="#fff"] { fill: #27272a; }
+      [fill="#f4f3ef"] { fill: #27272a; }
+      [fill="#eeeeee"] { fill: #27272a; }
+      [fill="#eef3fb"] { fill: #1d2a3f; }
+      [fill="#dfe8f8"] { fill: #263652; }
+      [fill="#efeafc"] { fill: #2a2443; }
+      [fill="#e4f4ee"] { fill: #1b332d; }
+      [fill="#fdf2de"] { fill: #3a2e17; }
+    }
+  </style>
+
+  <rect width="820" height="510" fill="#ffffff"/>
+  <text x="410" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#222">How “cat” pays attention</text>
+
+  <!-- axis labels -->
+  <text x="294" y="74" text-anchor="middle" font-size="13" fill="#777">looks at (keys) →</text>
+  <text x="140" y="100" text-anchor="end" font-size="13" fill="#777">asks (queries) ↓</text>
+
+  <!-- column labels -->
+  <g font-size="15" fill="#222" text-anchor="middle">
+    <text x="186" y="100">a</text><text x="258" y="100">fluffy</text><text x="330" y="100">black</text><text x="402" y="100">cat</text>
+  </g>
+  <!-- row labels -->
+  <g font-size="15" fill="#222" text-anchor="end">
+    <text x="140" y="151">a</text><text x="140" y="223">fluffy</text><text x="140" y="295">black</text><text x="140" y="367" font-weight="700">cat</text>
+  </g>
+
+  <g stroke="#fff" stroke-width="2" font-size="15" text-anchor="middle">
+    <!-- row a -->
+    <rect x="150" y="110" width="72" height="72" fill="#6c56d8" fill-opacity="0.9"/>
+    <rect x="222" y="110" width="72" height="72" fill="#eeeeee"/>
+    <rect x="294" y="110" width="72" height="72" fill="#eeeeee"/>
+    <rect x="366" y="110" width="72" height="72" fill="#eeeeee"/>
+    <!-- row fluffy -->
+    <rect x="150" y="182" width="72" height="72" fill="#6c56d8" fill-opacity="0.35"/>
+    <rect x="222" y="182" width="72" height="72" fill="#6c56d8" fill-opacity="0.6"/>
+    <rect x="294" y="182" width="72" height="72" fill="#eeeeee"/>
+    <rect x="366" y="182" width="72" height="72" fill="#eeeeee"/>
+    <!-- row black -->
+    <rect x="150" y="254" width="72" height="72" fill="#6c56d8" fill-opacity="0.22"/>
+    <rect x="222" y="254" width="72" height="72" fill="#6c56d8" fill-opacity="0.3"/>
+    <rect x="294" y="254" width="72" height="72" fill="#6c56d8" fill-opacity="0.47"/>
+    <rect x="366" y="254" width="72" height="72" fill="#eeeeee"/>
+    <!-- row cat -->
+    <rect x="150" y="326" width="72" height="72" fill="#6c56d8" fill-opacity="0.07"/>
+    <rect x="222" y="326" width="72" height="72" fill="#6c56d8" fill-opacity="0.49"/>
+    <rect x="294" y="326" width="72" height="72" fill="#6c56d8" fill-opacity="0.41"/>
+    <rect x="366" y="326" width="72" height="72" fill="#6c56d8" fill-opacity="0.07"/>
+  </g>
+  <g font-size="15" text-anchor="middle" fill="#222">
+    <text x="186" y="151" fill="#fff">1.00</text><text x="258" y="151" fill="#aaa">—</text><text x="330" y="151" fill="#aaa">—</text><text x="402" y="151" fill="#aaa">—</text>
+    <text x="186" y="223">0.35</text><text x="258" y="223" fill="#fff">0.65</text><text x="330" y="223" fill="#aaa">—</text><text x="402" y="223" fill="#aaa">—</text>
+    <text x="186" y="295">0.20</text><text x="258" y="295">0.30</text><text x="330" y="295" fill="#fff">0.50</text><text x="402" y="295" fill="#aaa">—</text>
+    <text x="186" y="367">0.03</text><text x="258" y="367" fill="#fff" font-weight="700">0.52</text><text x="330" y="367" font-weight="700">0.42</text><text x="402" y="367">0.03</text>
+  </g>
+  <rect x="150" y="326" width="288" height="72" rx="3" fill="none" stroke="#d9a13b" stroke-width="3"/>
+  <text x="448" y="367" font-size="13" fill="#b9821f" font-weight="600">◀ cat’s row</text>
+
+  <!-- right annotations -->
+  <g font-size="14" fill="#333">
+    <text x="510" y="140" font-weight="700">“cat” sends a query:</text>
+    <text x="510" y="162" font-style="italic">“Is anyone here describing me?”</text>
+    <text x="510" y="210">• fluffy (0.52) and black (0.42)</text>
+    <text x="522" y="230">raise their hands → listen a lot</text>
+    <text x="510" y="268">• a (0.03) → almost ignored</text>
+    <text x="510" y="306">• each score comes from comparing</text>
+    <text x="522" y="326">cat’s query with every key</text>
+  </g>
+
+  <!-- notes -->
+  <g font-size="13" fill="#666">
+    <text x="150" y="425">Each row adds up to 1 (softmax).</text>
+    <text x="150" y="445">Grey cells: a word can’t look at words that come after it.</text>
+  </g>
+  <text x="150" y="482" font-size="14" fill="#222">new “cat” = cat + (0.03·a + 0.52·fluffy + 0.42·black + 0.03·cat)   ← mixing their values</text>
+</svg>
