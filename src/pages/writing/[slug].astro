@@ -23,6 +23,18 @@ const projects = await getEntries(article.data.projects);
     <p class="muted">Written {formatMonth(date)}</p>
   </article>
 
+  <script>
+    // Let readers open a figure full size (and zoom in on a phone).
+    for (const img of document.querySelectorAll<HTMLImageElement>('.prose img')) {
+      if (img.closest('a')) continue;
+      const link = document.createElement('a');
+      link.href = img.src;
+      link.className = 'figure-link';
+      img.replaceWith(link);
+      link.append(img);
+    }
+  </script>
+
   {projects.length > 0 && (
     <section>
       <h2>Used in</h2>

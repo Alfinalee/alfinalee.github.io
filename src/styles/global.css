@@ -236,3 +236,8 @@ h2 {
   border-radius: 4px;
   padding: 0.05rem 0.3rem;
 }
+
+.figure-link {
+  display: block;
+  cursor: zoom-in;
+}
